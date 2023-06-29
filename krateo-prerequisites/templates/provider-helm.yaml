@@ -1,0 +1,18 @@
+# apiVersion: pkg.crossplane.io/v1alpha1
+# kind: ControllerConfig
+# metadata:
+#   name: provider-helm-controllerconfig
+# spec:
+#   securityContext:
+#     allowPrivilegeEscalation: false
+#     readOnlyRootFilesystem: true
+# ---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-helm
+spec:
+  package: xpkg.upbound.io/crossplane-contrib/provider-helm:v0.15.0
+  packagePullPolicy: IfNotPresent
+  # controllerConfigRef:
+  #   name: provider-helm-controllerconfig

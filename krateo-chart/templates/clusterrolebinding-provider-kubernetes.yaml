@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Release.Name }}-provider-kubernetes
+  namespace: {{ .Release.Namespace }}
+spec:
+  template:
+    metadata:
+      name: {{ .Release.Name }}-provider-kubernetes
+      namespace: {{ .Release.Namespace }}
+    spec:
+      restartPolicy: OnFailure
+      serviceAccount: krateo-job-sa
+      containers:
+      - name: post-install-job
+        image: alpine
+        command:
+        - /bin/sh
+        - -c
+        - |
+          apk --update add jq curl &&
+          curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl &&
+          chmod +x ./kubectl &&
+          mv ./kubectl /usr/bin/kubectl &&
+          SA=$(kubectl -n krateo-system get sa -o name | grep provider-kubernetes | sed -e 's|serviceaccount\/|krateo-system:|g') &&
+          kubectl create clusterrolebinding provider-kubernetes-admin-binding --clusterrole cluster-admin --serviceaccount="${SA}"

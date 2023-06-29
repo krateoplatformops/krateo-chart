@@ -1,0 +1,26 @@
+dashboard-common-chart:
+  schema: https
+  domain:
+    base: uat.o2x.h2obanking.eu
+    app: app-krateo
+    api: api-krateo
+  app:
+    ingress:
+      tls:
+        - secretName: sct-tls-wildcard-tst-o2x-h2obanking-eu
+          hosts:
+            - app-krateo.tst.o2x.h2obanking.eu
+  api:
+    ingress:
+      tls:
+        - secretName: sct-tls-wildcard-tst-o2x-h2obanking-eu
+          hosts:
+            - api-krateo.tst.o2x.h2obanking.eu
+
+kong:
+  proxy:
+    annotations:
+      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+      service.beta.kubernetes.io/azure-load-balancer-ipv4: 10.156.31.200
+    tls:
+      servicePort: 7443

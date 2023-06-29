@@ -1,0 +1,18 @@
+dependencies:
+- name: crossplane
+  repository: https://charts.crossplane.io/stable/
+  version: 1.12.2
+- name: krateo-crds
+  repository: https://charts.krateo.io
+  version: 0.3.9
+- name: dashboard-common-chart
+  repository: https://charts.krateo.io
+  version: 1.1.17
+- name: kong
+  repository: https://charts.konghq.com
+  version: 2.10.2
+- name: argo-cd
+  repository: https://argoproj.github.io/argo-helm
+  version: 5.6.6
+digest: sha256:70d85030afdb26820a566298f7c120fd61a6096562056f1566f056081d447284
+generated: "2023-06-26T23:32:04.054289+02:00"
