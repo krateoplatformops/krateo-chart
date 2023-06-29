@@ -24,17 +24,14 @@ version: 0.1.0
 appVersion: "0.1.0"
 
 dependencies:
-- name: crossplane
-  version: "1.12.2"
-  repository: "https://charts.crossplane.io/stable/"
 - name: krateo-crds
   version: "0.3.9"
   repository: "https://charts.krateo.io"
 - name: dashboard-common-chart
-  version: "1.1.17"
+  version: "1.1.18"
   repository: "https://charts.krateo.io"
 - name: kong
-  version: "2.10.2"
+  version: "2.15.2"
   repository: "https://charts.konghq.com"
 - name: argo-cd
   version: "5.6.6"

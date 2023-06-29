@@ -1,6 +1,7 @@
 dashboard-common-chart:
   schema: https
   domain:
+    port: 8443
     base: uat.o2x.h2obanking.eu
     app: app-krateo
     api: api-krateo
