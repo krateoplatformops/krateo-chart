@@ -25,3 +25,6 @@ kong:
       service.beta.kubernetes.io/azure-load-balancer-ipv4: 10.156.31.200
     tls:
       servicePort: 7443
+
+argocd: false
+openshift: true
