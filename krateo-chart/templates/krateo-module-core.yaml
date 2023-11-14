@@ -1,7 +1,0 @@
-apiVersion: modules.krateo.io/v1
-kind: Core
-metadata:
-  name: core
-spec:
-  namespace: krateo-system
-  platform: kubernetes
