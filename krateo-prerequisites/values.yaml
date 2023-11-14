@@ -9,3 +9,6 @@ argo-cd:
   server:
     extraArgs:
       - --insecure
+
+argocd: false
+openshift: true
